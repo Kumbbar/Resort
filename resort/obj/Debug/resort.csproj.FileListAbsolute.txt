@@ -6,7 +6,6 @@ C:\Users\79220\source\repos\resort\resort\bin\Debug\EntityFramework.SqlServer.dl
 C:\Users\79220\source\repos\resort\resort\bin\Debug\EntityFramework.xml
 C:\Users\79220\source\repos\resort\resort\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\79220\source\repos\resort\resort\bin\Debug\ru\EntityFramework.resources.dll
-C:\Users\79220\source\repos\resort\resort\obj\Debug\resort.csproj.AssemblyReference.cache
 C:\Users\79220\source\repos\resort\resort\obj\Debug\App.g.cs
 C:\Users\79220\source\repos\resort\resort\obj\Debug\resort_MarkupCompile.cache
 C:\Users\79220\source\repos\resort\resort\obj\Debug\resort_MarkupCompile.lref
@@ -22,3 +21,6 @@ C:\Users\79220\source\repos\resort\resort\obj\Debug\Windows\MainMenu.baml
 C:\Users\79220\source\repos\resort\resort\obj\Debug\resort_Content.g.cs
 C:\Users\79220\source\repos\resort\resort\obj\Debug\Windows\LoginWindow.g.cs
 C:\Users\79220\source\repos\resort\resort\obj\Debug\Windows\LoginWindow.baml
+C:\Users\79220\source\repos\resort\resort\obj\Debug\resort.csproj.AssemblyReference.cache
+C:\Users\79220\source\repos\resort\resort\obj\Debug\Windows\TourWindow.g.cs
+C:\Users\79220\source\repos\resort\resort\obj\Debug\Windows\TourWindow.baml

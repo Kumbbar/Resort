@@ -28,13 +28,7 @@ namespace resort
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
-            /*var user = Database.ConnectDB.objDB.Workers.Where(x => x.login == TxtEmail.Text && x.password == TxtPass.Text).ToList();
-            if (user.Count() > 0) {
-                var menu = new Windows.MainMenu();
-                menu.Show();
-                this.Close();
-            } 
-            else MessageBox.Show("Неверный логин или пароль", "Ошибка");*/
+            
         }
     }
 }

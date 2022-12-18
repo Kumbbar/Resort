@@ -64,6 +64,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Windows\TourWindow.xaml.cs">
+      <DependentUpon>TourWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="Windows\MainMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -120,6 +123,10 @@
       <DependentUpon>LoginWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Windows\TourWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -169,27 +176,28 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Resource Include="Resourses\Болгарское наследие.jpg" />
-    <Resource Include="Resourses\Волшебный Восток.jpg" />
-    <Resource Include="Resourses\Город с большими амбициями.jpg" />
-    <Resource Include="Resourses\Город четырех ворот.jpg" />
-    <Resource Include="Resourses\Древний Минск.jpg" />
-    <Resource Include="Resourses\Жемчужина Татарстана.jpg" />
-    <Resource Include="Resourses\Знакомьтесь, Амстердам!.jpg" />
-    <Resource Include="Resourses\Из Алании к загадочным пещерам Алтынбешик.jpg" />
-    <Resource Include="Resourses\Многоликий Сувон.jpg" />
-    <Resource Include="Resourses\Москва поэтическая.jpg" />
-    <Resource Include="Resourses\Незабываемый Дели.jpg" />
-    <Resource Include="Resourses\Романтика белых ночей и разводных мостов.jpg" />
-    <Resource Include="Resourses\Свидание с Хельсинки.jpg" />
-    <Resource Include="Resourses\Сердце Ирана.jpg" />
-    <Resource Include="Resourses\Сердце Северной Карелии.jpg" />
-    <Resource Include="Resourses\Старый город.jpg" />
-    <Resource Include="Resourses\Столица страны Утренней Свежести.jpg" />
-    <Resource Include="Resourses\Страна идеальной гармонии.jpg" />
-    <Resource Include="Resourses\Урбанистическая Бразилия.jpg" />
-    <Resource Include="Resourses\Финская крепость.jpg" />
-    <Resource Include="Resourses\Финский романтизм.jpg" />
+    <Resource Include="Resources\NotFound.png" />
+    <Resource Include="Resources\Болгарское наследие.jpg" />
+    <Resource Include="Resources\Волшебный Восток.jpg" />
+    <Resource Include="Resources\Город с большими амбициями.jpg" />
+    <Resource Include="Resources\Город четырех ворот.jpg" />
+    <Resource Include="Resources\Древний Минск.jpg" />
+    <Resource Include="Resources\Жемчужина Татарстана.jpg" />
+    <Resource Include="Resources\Знакомьтесь, Амстердам!.jpg" />
+    <Resource Include="Resources\Из Алании к загадочным пещерам Алтынбешик.jpg" />
+    <Resource Include="Resources\Многоликий Сувон.jpg" />
+    <Resource Include="Resources\Москва поэтическая.jpg" />
+    <Resource Include="Resources\Незабываемый Дели.jpg" />
+    <Resource Include="Resources\Романтика белых ночей и разводных мостов.jpg" />
+    <Resource Include="Resources\Свидание с Хельсинки.jpg" />
+    <Resource Include="Resources\Сердце Ирана.jpg" />
+    <Resource Include="Resources\Сердце Северной Карелии.jpg" />
+    <Resource Include="Resources\Старый город.jpg" />
+    <Resource Include="Resources\Столица страны Утренней Свежести.jpg" />
+    <Resource Include="Resources\Страна идеальной гармонии.jpg" />
+    <Resource Include="Resources\Урбанистическая Бразилия.jpg" />
+    <Resource Include="Resources\Финская крепость.jpg" />
+    <Resource Include="Resources\Финский романтизм.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

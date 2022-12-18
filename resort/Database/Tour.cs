@@ -11,10 +11,12 @@ namespace resort.Database
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Linq;
+
     public partial class Tour
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        
         public Tour()
         {
             this.Hotel = new HashSet<Hotel>();
@@ -33,7 +35,7 @@ namespace resort.Database
         {
             get
             {
-                return "/Resourses/" + this.Name + ".jpg";
+                return "/Resources/" + this.Name + ".jpg";
             }
         }
 
@@ -66,5 +68,10 @@ namespace resort.Database
         public virtual ICollection<Hotel> Hotel { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Type> Type { get; set; }
+
+        public static Tour GetTourById(int Id, DemoEntities dbObj)
+        {
+            return dbObj.Tour.Where(tour => tour.Id == Id).First();
+        }
     }
 }

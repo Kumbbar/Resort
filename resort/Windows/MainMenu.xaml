@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:resort.Windows"
         mc:Ignorable="d"
         Title="Туры" Height="450" Width="800">
+    <Window.Resources>
+        <BitmapImage x:Key="NotFound" UriSource="/Resources/NotFound.png"/>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
@@ -33,19 +36,17 @@
                    />
             <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left"
                      VerticalAlignment="Center">
-                <TextBox  Width="200"
-                     
-                     />
+                <TextBox x:Name="TxtTourName" Width="200" TextChanged="TxtTourName_TextChanged"/>
             </Border>
             <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1" Grid.Row="1" 
                     HorizontalAlignment="Left"
                      VerticalAlignment="Center">
-                <ComboBox Width="200"/>
+                <ComboBox Width="200" x:Name="CmbxTypes" DisplayMemberPath="Name" SelectionChanged="CmbxTypes_SelectionChanged"/>
             </Border>
             <CheckBox Content="только актуальные туры" Grid.Row="2" Grid.Column="2"
                       HorizontalAlignment="Left" VerticalAlignment="Center"/>
         </Grid>
-        <ListView Grid.Row="1" x:Name="ListTours" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Center">
+        <ListView Grid.Row="1" x:Name="ListTours" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Center" SelectionChanged="ListTours_SelectionChanged">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel></WrapPanel>
@@ -62,7 +63,7 @@
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <TextBlock  Grid.Row="0" Text="{ Binding Name }" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <Image Grid.Row="1" Source="{ Binding ImgPath, FallbackValue={} }"/>
+                            <Image Grid.Row="1" Source="{ Binding ImgPath, FallbackValue={ StaticResource NotFound } }"/>
                             <TextBlock Grid.Row="2" Text="{ Binding FullPrice }" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             <UniformGrid Rows="1" Columns="2" Grid.Row="3">
                                 <TextBlock Grid.Row="0" Grid.Column="0" Text="{ Binding NrmActual}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
