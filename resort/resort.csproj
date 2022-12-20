@@ -64,22 +64,32 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Windows\HotelsWindow.xaml.cs">
+      <DependentUpon>HotelsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\HotelWindow.xaml.cs">
+      <DependentUpon>HotelWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\TourWindow.xaml.cs">
       <DependentUpon>TourWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="Windows\MainMenu.xaml">
+    <Page Include="Windows\HotelsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\LoginWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Windows\HotelWindow.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ToursWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Database\ConnectDB.cs" />
+    <Compile Include="Database\DBRequests.cs" />
     <Compile Include="Database\Country.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -116,12 +126,8 @@
     <Compile Include="Database\Type.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Windows\MainMenu.xaml.cs">
-      <DependentUpon>MainMenu.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\LoginWindow.xaml.cs">
-      <DependentUpon>LoginWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
+    <Compile Include="Windows\ToursWindow.xaml.cs">
+      <DependentUpon>ToursWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Windows\TourWindow.xaml">
       <SubType>Designer</SubType>

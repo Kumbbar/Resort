@@ -15,71 +15,62 @@ using resort.Database;
 
 namespace resort.Windows
 {
-    public partial class MainMenu : Window
+    public partial class ToursWindow : Window
     {
-        private DemoEntities _DBobj = new DemoEntities();
         private List<Database.Type> _TourTypes = new List<Database.Type>();
         private List<Tour> _Tours = new List<Tour>();
         private Database.Type SelectedType = new Database.Type() { Name = "Все типы" };
-        public void UpdateToursListByStored()
-        {
-            _Tours = _DBobj.Tour.OrderBy(tour => tour.Name).ToList();
+        private string TxtFind = "";
+
+        public void UpdateToursList() {
+            _Tours = DBRequests.Tours.GetToursOrderByName();
+            if (TxtFind != "") {
+                _Tours = DBRequests.Tours.GetToursWithLikeName_In(TxtFind, _Tours);
+            }
+            if (SelectedType.Name != "Все типы") {
+                _Tours = DBRequests.Tours.GetToursWithType_In(SelectedType, _Tours);
+            }
             ListTours.ItemsSource = _Tours;
         }
-        private void UpdateToursList(List<Tour> _tours) {
-            ListTours.ItemsSource = _tours;
-        }
 
-        public MainMenu()
+        public ToursWindow()
         {
             InitializeComponent();
 
             _TourTypes.Add(new Database.Type() { Name = "Все типы" });
-            _TourTypes.AddRange(_DBobj.Type.ToList());
-
-            _Tours = _DBobj.Tour.OrderBy(tour => tour.Name).ToList();
-
-
-            ListTours.ItemsSource = _Tours;
+            _TourTypes.AddRange(DBRequests.Types.GetTypesList());
             CmbxTypes.ItemsSource = _TourTypes;
+
+            _Tours = DBRequests.Tours.GetToursOrderByName(); ;
+            ListTours.ItemsSource = _Tours;
         }
 
         private void CmbxTypes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Database.Type type = CmbxTypes.SelectedItem as Database.Type;
-            _Tours = _DBobj.Tour.ToList();
-            if(type.Name == "Все типы")
-            {
-                UpdateToursList(_Tours);
-                return;
-            }
-            _Tours = (
-                from t in _Tours
-                from tt in t.Type
-                where tt.Id == type.Id
-                select t
-                ).ToList();
-            
-            UpdateToursList(_Tours);
+            SelectedType = type;
+            UpdateToursList();
         }
 
         private void TxtTourName_TextChanged(object sender, TextChangedEventArgs e)
         {
-            string FindtourName = TxtTourName.Text;
-            _Tours = _DBobj.Tour.Where(
-                tour => tour.Name.StartsWith(FindtourName) || tour.Name.EndsWith(FindtourName)
-                ).ToList();
-            UpdateToursList(_Tours);
+            TxtFind = TxtTourName.Text;
+            UpdateToursList();
         }
 
         private void ListTours_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Tour SelectedTour = ListTours.SelectedItem as Tour;
+            ListTours.SelectedItem = null;
             if (SelectedTour == null) return;
-            TourWindow window = new TourWindow();
-            window.SetTour(SelectedTour);
-            window.Owner = this;
-            window.ShowDialog();
+            TourWindow tourWindow = new TourWindow(SelectedTour, this);
+            tourWindow.ShowDialog();
+        }
+
+        private void BtnOpenHotels_Click(object sender, RoutedEventArgs e)
+        {
+            var hotelsWindow = new HotelsWindow();
+            hotelsWindow.Show();
         }
     }
 }

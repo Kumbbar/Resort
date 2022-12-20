@@ -1,0 +1,32 @@
+﻿<Window x:Class="resort.Windows.HotelWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:resort.Windows"
+        mc:Ignorable="d"
+        Title="Редактирование отеля" Height="450" Width="300" MinHeight="450" MinWidth="300"
+        ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="7*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="Название: " HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <Label Grid.Row="1" Grid.Column="0" Content="К-во звезд: " HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="Страна: " HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        
+        <TextBox x:Name="TxtName" Grid.Row="0" Width="200" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <TextBox x:Name="TxtStars" Grid.Row="1" Width="200" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <ComboBox x:Name="CmbCountry" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" DisplayMemberPath="Name" SelectionChanged="CmbCountry_SelectionChanged"/>
+        <Button x:Name="BtnSave" Grid.Column="1" Grid.Row="4" Content="Сохранить" Click="BtnSave_Click" />
+    </Grid>
+</Window>

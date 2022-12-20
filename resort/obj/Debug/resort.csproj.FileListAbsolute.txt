@@ -16,11 +16,13 @@ C:\Users\79220\source\repos\resort\resort\obj\Debug\resort.csproj.CoreCompileInp
 C:\Users\79220\source\repos\resort\resort\obj\Debug\resort.csproj.CopyComplete
 C:\Users\79220\source\repos\resort\resort\obj\Debug\resort.exe
 C:\Users\79220\source\repos\resort\resort\obj\Debug\resort.pdb
-C:\Users\79220\source\repos\resort\resort\obj\Debug\Windows\MainMenu.g.cs
-C:\Users\79220\source\repos\resort\resort\obj\Debug\Windows\MainMenu.baml
 C:\Users\79220\source\repos\resort\resort\obj\Debug\resort_Content.g.cs
-C:\Users\79220\source\repos\resort\resort\obj\Debug\Windows\LoginWindow.g.cs
-C:\Users\79220\source\repos\resort\resort\obj\Debug\Windows\LoginWindow.baml
 C:\Users\79220\source\repos\resort\resort\obj\Debug\resort.csproj.AssemblyReference.cache
 C:\Users\79220\source\repos\resort\resort\obj\Debug\Windows\TourWindow.g.cs
 C:\Users\79220\source\repos\resort\resort\obj\Debug\Windows\TourWindow.baml
+C:\Users\79220\source\repos\resort\resort\obj\Debug\Windows\HotelsWindow.g.cs
+C:\Users\79220\source\repos\resort\resort\obj\Debug\Windows\ToursWindow.g.cs
+C:\Users\79220\source\repos\resort\resort\obj\Debug\Windows\HotelsWindow.baml
+C:\Users\79220\source\repos\resort\resort\obj\Debug\Windows\ToursWindow.baml
+C:\Users\79220\source\repos\resort\resort\obj\Debug\Windows\HotelWindow.g.cs
+C:\Users\79220\source\repos\resort\resort\obj\Debug\Windows\HotelWindow.baml

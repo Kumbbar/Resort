@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using resort.Database;
+using resort.Windows;
 
 namespace resort.Windows
 {
@@ -20,17 +21,16 @@ namespace resort.Windows
     /// </summary>
     public partial class TourWindow : Window
     {
-        private DemoEntities _DBobj = new DemoEntities();
-        private Tour tour; 
-        public TourWindow()
+        public ToursWindow menu;
+        public Tour tour;
+        public TourWindow(Tour tour, ToursWindow menu)
         {
-            InitializeComponent();           
-            
-        }
+            InitializeComponent();
+            this.menu = menu;
 
-        public void SetTour(Tour tour) {
             if (tour == null) return;
             this.tour = tour;
+
             NameLabel.Content = tour.Name;
             TxtName.Text = tour.Name;
             TourImage.Source = new BitmapImage(new Uri(tour.ImgPath, UriKind.Relative));
@@ -39,12 +39,13 @@ namespace resort.Windows
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            tour.Name = TxtName.Text;
-            tour.Description = TxtDescription.Text;
-            Tour EditTour = ConnectDB.Tours.GetTourById(tour.Id);
+            Tour EditTour = DBRequests.Tours.GetTourById(tour.Id);
+
             EditTour.Name = TxtName.Text;
             EditTour.Description = TxtDescription.Text;
-            _DBobj.SaveChanges();
+
+            DBRequests.objDB.SaveChanges();
+            menu.UpdateToursList();
             this.Close();
         }
     }
