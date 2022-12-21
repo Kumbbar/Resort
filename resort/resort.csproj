@@ -64,6 +64,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Windows\AddHotelWindow.xaml.cs">
+      <DependentUpon>AddHotelWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\HotelsWindow.xaml.cs">
       <DependentUpon>HotelsWindow.xaml</DependentUpon>
     </Compile>
@@ -73,6 +76,10 @@
     <Compile Include="Windows\TourWindow.xaml.cs">
       <DependentUpon>TourWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Windows\AddHotelWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\HotelsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

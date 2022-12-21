@@ -76,5 +76,11 @@ namespace resort.Windows
             HotelWindow hotelWindow = new HotelWindow(SelectedItem, this);
             hotelWindow.ShowDialog();
         }
+
+        private void BtnCreateHotel_Click(object sender, RoutedEventArgs e)
+        {
+            AddHotelWindow addHotelWindow = new AddHotelWindow(this);
+            addHotelWindow.ShowDialog();
+        }
     }
 }

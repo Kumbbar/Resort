@@ -16,49 +16,36 @@ using resort.Database;
 namespace resort.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для HotelWindow.xaml
+    /// Логика взаимодействия для AddHotelWindow.xaml
     /// </summary>
-    public partial class HotelWindow : Window
+    public partial class AddHotelWindow : Window
     {
         public Hotel hotel;
         public Country SelectedCountry;
         public HotelsWindow hotelsWindow;
-        public HotelWindow(Hotel hotel, HotelsWindow hotelsWindow)
+
+        public AddHotelWindow(HotelsWindow hotelsWindow)
         {
             InitializeComponent();
-            this.hotel = hotel;
-            this.hotelsWindow = hotelsWindow;
-            TxtName.Text = hotel.Name;
-            TxtStars.Text = Convert.ToString(hotel.CountOfStars);
-
             CmbCountry.ItemsSource = DBRequests.Сountries.GetCountriesOrderByName();
-            SelectedCountry = hotel.Country;
-            CmbCountry.SelectedItem = SelectedCountry;
+            this.hotelsWindow = hotelsWindow;
+            this.hotel = new Hotel();
         }
-
         private void CmbCountry_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             SelectedCountry = CmbCountry.SelectedItem as Country;
         }
 
-        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
             hotel.Name = TxtName.Text;
             hotel.CountOfStars = Convert.ToInt32(TxtStars.Text);
             hotel.Country = SelectedCountry;
-            DBRequests.objDB.SaveChanges();
-            hotelsWindow.UpdateHotelsDataGrid();
-            this.Close();
-        }
 
-        private void BtnDel_Click(object sender, RoutedEventArgs e)
-        {
-            var userAnswer = MessageBox.Show($"Удалить {this.hotel.Name}?", "Подтвердите выбор", MessageBoxButton.YesNo);
-            if (userAnswer == MessageBoxResult.No) return;
-
-            DBRequests.objDB.Hotel.Remove(this.hotel);
+            DBRequests.objDB.Hotel.Add(this.hotel);
             DBRequests.objDB.SaveChanges();
-            hotelsWindow.UpdateAll();
+
+            this.hotelsWindow.UpdateHotelsDataGrid();
             this.Close();
         }
     }
